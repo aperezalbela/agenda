@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang='es'>
+  <head>
+        <title>Lista de Contactos</title>
+        <meta charset='utf-8'>
+  </head>
+  <body>
+    <h1>Listado de Contactos</h1>
+        <b>Query:</b> {{query}}
+	<br />
+	{% for contacto in lista %}
+        <ul>
+          <li><strong>Apellidos y Nombres: </strong><a href="/contacto/{{contacto.id_contacto}}">{{contacto.nombre_completo}}</a></li>
+          <li><strong>Telefono: </strong>{{contacto.telefono}}</li>
+          <li><strong>Distrito: </strong>{{contacto.distrito}}</li>
+        </ul>
+        {% endfor %}
+  </body>
+</html>

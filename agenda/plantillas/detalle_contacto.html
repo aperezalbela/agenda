@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang='es'>
+  <head>
+        <title>Detalle de Contacto</title>
+        <meta charset='utf-8'>
+ </head>
+  <body>
+    <h1>Detalle del Contacto</h1>
+    <br />
+	<table border=1>
+	<th>Nombre</th>
+	<th>Ape. Paterno</th>
+	<th>Ape. Materno</th>
+	<th>Correo</th>
+	<th>Distrito</th>
+			{% for contact in contacto %}
+				<tr>
+					<td>{{contact.nombre}}</td>
+					<td>{{contact.apellido_paterno}}</td>
+                        		<td>{{contact.apellido_materno}}</td>
+	                       	 	<td>{{contact.correo}}</td>
+        	                	<td>{{contact.distrito}}</td>
+				</tr>
+			{% endfor %}
+		</tr>	
+	</table>
+  </body>
+</html>
