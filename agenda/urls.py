@@ -12,4 +12,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^listar-contactos/', 'contactos.views.lista_contactos'),
     url(r'^contacto/(?P<id_contacto>\w+)+$', 'contactos.views.detalle_contacto'),
+    url(r'^contacto/$', 'contactos.views.lista_contactos'),
 )
