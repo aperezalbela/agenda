@@ -10,7 +10,10 @@ urlpatterns = patterns('',
 
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^listar-contactos/', 'contactos.views.lista_contactos'),
+    url(r'^listar-contactos/$', 'contactos.views.lista_contactos'),
     url(r'^contacto/(?P<id_contacto>\w+)+$', 'contactos.views.detalle_contacto'),
     url(r'^contacto/$', 'contactos.views.lista_contactos'),
+    url(r'^contact/$', 'contactos.views.contactar'),
+    url(r'^gracias/$', 'contactos.views.gracias'),
+    url(r'^contacto/grabar/$', 'contactos.views.grabarContacto'),
 )

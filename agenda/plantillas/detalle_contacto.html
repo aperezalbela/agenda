@@ -24,5 +24,10 @@
 			{% endfor %}
 		</tr>	
 	</table>
+	<br />
+	<form name='formulario' method='POST' action='/contacto/grabar/'>{% csrf_token %}
+		{{formulario.as_p}}
+		<p><input type='submit' value='Confirmar' /></p>
+	</form>
   </body>
 </html>

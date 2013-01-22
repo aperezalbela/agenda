@@ -155,3 +155,9 @@ LOGGING = {
         },
     }
 }
+
+EMAIL_USE_TLS		= True
+EMAIL_HOST 		= 'smtp.gmail.com'
+EMAIL_HOST_USER		= 'robottito@seguridadinformatica.org'
+EMAIL_HOST_PASSWORD	= 'R0b0t1t0***'
+EMAIL_PORT		= 587
