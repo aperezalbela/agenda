@@ -14,5 +14,4 @@ urlpatterns = patterns('',
     url(r'^contacto/(?P<id_contacto>\d+)+$', 'contactos.views.contacto'),
     url(r'^contact/$', 'contactos.views.contactar'),
     url(r'^gracias/$', 'contactos.views.gracias'),
-    url(r'^contacto/grabar/$', 'contactos.views.grabarContacto'),
 )

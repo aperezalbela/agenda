@@ -16,8 +16,8 @@ class Contacto(models.Model):
 	nombre			=	models.CharField(max_length=50)
 	apellido_paterno        =       models.CharField(max_length=50)
 	apellido_materno	=	models.CharField(max_length=50)
-	telefono		=	models.IntegerField()
-	correo			=	models.CharField(max_length=100)
+	telefono		=	models.BigIntegerField()
+	correo			=	models.EmailField()
 	direccion		=	models.TextField()	
 	distrito		=	models.ForeignKey(Distrito,default=1, db_column="id_distrito")	
 
