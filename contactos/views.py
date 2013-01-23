@@ -5,14 +5,6 @@ from contactos.forms import ContactoForm
 from django.core.mail import EmailMessage
 #from django.template import RequestContext
 
-def grabarContacto(request):
-	if request.method=='POST':
-		contact =	Contacto.object.get(id=request.id)
-		form	=	ContactoForm(request.POST, instance=contact)
-		if form.is_valid():
-			form.save()
-			return render(request, 'gracias.html')
-
 def gracias(request):
 	return render(request, 'gracias.html')
 
@@ -20,12 +12,20 @@ def lista_contactos(request):
 	contactos	=	Contacto.objects.order_by('apellido_paterno')
 	return render_to_response('lista_contactos.html', {'lista': contactos})
 
-def detalle_contacto(request, id_contacto):
-	contact		=	get_list_or_404(Contacto, pk=id_contacto)
-	contact2	=	get_object_or_404(Contacto, pk=id_contacto)
-	formulario	=	ContactoForm(instance=contact2)
-	#return render_to_response('detalle_contacto.html', {'contacto': contact, 'formulario': formulario})
-	return render(request, 'detalle_contacto.html', {'contacto': contact, 'formulario': formulario})	
+def contacto(request, id_contacto):
+	contact	= get_object_or_404(Contacto, pk=id_contacto,)
+	
+	if request.method=='GET':
+		formulario = ContactoForm(instance=contact)
+		#return render_to_response('detalle_contacto.html', {'contacto': contact, 'formulario': formulario})
+		return render(request, 'detalle_contacto.html', {'contacto': contact, 'formulario': formulario})
+	elif request.method=='POST':
+		form = ContactoForm(request.POST, instance=contact)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/contacto/'+str(id_contacto))
+		else:
+			return render(request, 'detalle_contacto.html', {'contacto': contact, 'formulario': form})
 
 def detalle_contacto2(request, id_contacto):
 	#contact 	=	Contacto.objects.get(nombre__contains=id_contacto)

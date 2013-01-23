@@ -13,19 +13,17 @@
 	<th>Ape. Materno</th>
 	<th>Correo</th>
 	<th>Distrito</th>
-			{% for contact in contacto %}
 				<tr>
-					<td>{{contact.nombre}}</td>
-					<td>{{contact.apellido_paterno}}</td>
-                        		<td>{{contact.apellido_materno}}</td>
-	                       	 	<td>{{contact.correo}}</td>
-        	                	<td>{{contact.distrito}}</td>
+					<td>{{contacto.nombre}}</td>
+					<td>{{contacto.apellido_paterno}}</td>
+                        		<td>{{contacto.apellido_materno}}</td>
+	                       	 	<td>{{contacto.correo}}</td>
+        	                	<td>{{contacto.distrito}}</td>
 				</tr>
-			{% endfor %}
 		</tr>	
 	</table>
 	<br />
-	<form name='formulario' method='POST' action='/contacto/grabar/'>{% csrf_token %}
+	<form name='formulario' method='POST' action=''>{% csrf_token %}
 		{{formulario.as_p}}
 		<p><input type='submit' value='Confirmar' /></p>
 	</form>

@@ -1,2 +1,4 @@
 #Ignoramos el virtualenv "env"
 env
+*.pyc
+*.swp
